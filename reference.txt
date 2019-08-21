@@ -1,0 +1,8 @@
+Yann LeCun
+http://yann.lecun.com/exdb/mnist/
+
+
+PJ Reddie
+https://pjreddie.com/projects/mnist-in-csv/
+
+
