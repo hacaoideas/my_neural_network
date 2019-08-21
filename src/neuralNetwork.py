@@ -1,4 +1,5 @@
 """
+
 >>> import numpy as np
 >>> myNet = neuralNetwork(3,4,3,0.3)
 >>> res = myNet.query(np.array([3,2,1]))
