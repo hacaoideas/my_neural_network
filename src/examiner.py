@@ -23,8 +23,6 @@ class examiner:
         plt.show()
 
 
-        
-
     
     #These implements iterator protocol and return the
     #next pair of inputs and targets
