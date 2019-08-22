@@ -12,6 +12,10 @@
 
 import numpy as np
 import scipy.special
+import pickle as pk
+
+def _expit(x):
+    return scipy.special.expit(x)
 
 class neuralNetwork:
 
@@ -38,7 +42,8 @@ class neuralNetwork:
         #accept methods to generate initial weights
 
         #activation function
-        self.activation_function = lambda x: scipy.special.expit(x)
+        #only object defined as def can be pickled. 
+        self.activation_function = _expit
 
 
     #train the neural network
@@ -94,9 +99,26 @@ class neuralNetwork:
 
         return final_output
 
+    #This function persists the neural Network innards into files
+    def persist(self):
+        with open('../temp/neuralNetwork.pkl', 'wb') as dumpfile:
+            pk.dump(self, dumpfile)
 
+    #This function recreate the neural network from files
+    @classmethod
+    def recreate(cls):
+        with open('../temp/neuralNetwork.pkl', 'rb') as dumpfile:
+            obj = pk.load(dumpfile)
+            return obj
 
 
 if __name__ == "__main__":
     import doctest
     doctest.testmod()
+
+    nw1 = neuralNetwork(3,4,3,0.3)
+    print(nw1.__dict__)
+    nw1.persist()
+    print("====")
+    nw2 = neuralNetwork.recreate()
+    print(nw2.__dict__)
