@@ -29,7 +29,9 @@ class examiner:
         target = np.zeros((10))
         target[self.label_only[row]] = 1
         input = self.data_only[row,:]
-        return (input, target)
+        input_i = input.flatten()
+        input_i = np.interp(input, (input.min(), input.max()),(0,1))
+        return (input_i, target)
 
 
 
