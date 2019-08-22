@@ -99,12 +99,12 @@ class neuralNetwork:
 
         return final_output
 
-    #This function persists the neural Network innards into files
+    #This function persists the neural Network innards into file
     def persist(self):
         with open('../temp/neuralNetwork.pkl', 'wb') as dumpfile:
             pk.dump(self, dumpfile)
 
-    #This function recreate the neural network from files
+    #This function recreates the neural network from file
     @classmethod
     def recreate(cls):
         with open('../temp/neuralNetwork.pkl', 'rb') as dumpfile:
